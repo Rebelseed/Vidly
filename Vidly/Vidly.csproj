@@ -168,18 +168,42 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611180814100_InitialModel.cs" />
+    <Compile Include="Migrations\201611180814100_InitialModel.Designer.cs">
+      <DependentUpon>201611180814100_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611180940112_AddIsSubscribedPropToCustomer.cs" />
+    <Compile Include="Migrations\201611180940112_AddIsSubscribedPropToCustomer.Designer.cs">
+      <DependentUpon>201611180940112_AddIsSubscribedPropToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611180946267_AddMembershipTypeClass.cs" />
+    <Compile Include="Migrations\201611180946267_AddMembershipTypeClass.Designer.cs">
+      <DependentUpon>201611180946267_AddMembershipTypeClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611180953310_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201611180953310_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201611180953310_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -234,6 +258,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Movies\Random.cshtml" />
+    <Content Include="Views\_NavBar.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -245,6 +274,20 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611180814100_InitialModel.resx">
+      <DependentUpon>201611180814100_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611180940112_AddIsSubscribedPropToCustomer.resx">
+      <DependentUpon>201611180940112_AddIsSubscribedPropToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611180946267_AddMembershipTypeClass.resx">
+      <DependentUpon>201611180946267_AddMembershipTypeClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611180953310_PopulateMembershipTypes.resx">
+      <DependentUpon>201611180953310_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
