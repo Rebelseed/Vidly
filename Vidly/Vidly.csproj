@@ -191,6 +191,30 @@
     <Compile Include="Migrations\201611180953310_PopulateMembershipTypes.Designer.cs">
       <DependentUpon>201611180953310_PopulateMembershipTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611181022049_ApplyAnnotationsToCustomerClass.cs" />
+    <Compile Include="Migrations\201611181022049_ApplyAnnotationsToCustomerClass.Designer.cs">
+      <DependentUpon>201611181022049_ApplyAnnotationsToCustomerClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611181142345_AddNameToMembershipTypeClass.cs" />
+    <Compile Include="Migrations\201611181142345_AddNameToMembershipTypeClass.Designer.cs">
+      <DependentUpon>201611181142345_AddNameToMembershipTypeClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611181148487_UpdateExistingRecordsWithMembershipName.cs" />
+    <Compile Include="Migrations\201611181148487_UpdateExistingRecordsWithMembershipName.Designer.cs">
+      <DependentUpon>201611181148487_UpdateExistingRecordsWithMembershipName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611181210173_AddBirthDateToCustomerClass.cs" />
+    <Compile Include="Migrations\201611181210173_AddBirthDateToCustomerClass.Designer.cs">
+      <DependentUpon>201611181210173_AddBirthDateToCustomerClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611181224137_AddBirthDateToCustomerClass1.cs" />
+    <Compile Include="Migrations\201611181224137_AddBirthDateToCustomerClass1.Designer.cs">
+      <DependentUpon>201611181224137_AddBirthDateToCustomerClass1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611181227196_BirthDateSortOut.cs" />
+    <Compile Include="Migrations\201611181227196_BirthDateSortOut.Designer.cs">
+      <DependentUpon>201611181227196_BirthDateSortOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -287,6 +311,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611180953310_PopulateMembershipTypes.resx">
       <DependentUpon>201611180953310_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611181022049_ApplyAnnotationsToCustomerClass.resx">
+      <DependentUpon>201611181022049_ApplyAnnotationsToCustomerClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611181142345_AddNameToMembershipTypeClass.resx">
+      <DependentUpon>201611181142345_AddNameToMembershipTypeClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611181148487_UpdateExistingRecordsWithMembershipName.resx">
+      <DependentUpon>201611181148487_UpdateExistingRecordsWithMembershipName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611181210173_AddBirthDateToCustomerClass.resx">
+      <DependentUpon>201611181210173_AddBirthDateToCustomerClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611181224137_AddBirthDateToCustomerClass1.resx">
+      <DependentUpon>201611181224137_AddBirthDateToCustomerClass1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611181227196_BirthDateSortOut.resx">
+      <DependentUpon>201611181227196_BirthDateSortOut.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

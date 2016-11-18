@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 using Vidly.Models;
 using Vidly.ViewModels;
 
@@ -11,27 +12,29 @@ namespace Vidly.Controllers
     public class CustomerController : Controller
     {
         // GET: Customer
+        private ApplicationDbContext _context;
+
+        public CustomerController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
 
         public ViewResult Index()
         {
-            var customers = GetCustomers();
+
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
             return View(customers);
         }
 
-        private IEnumerable<Customer> GetCustomers()
-        {
-            return new List<Customer>
-            {
-                new Customer {Name = "John Smith", Id = 1 },
-                new Customer {Name = "Mary Watson", Id = 2 }
-            };
-
-        }
-
         public ActionResult Details(int id)
         {
-            var customer = GetCustomers().SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
             {
@@ -41,6 +44,5 @@ namespace Vidly.Controllers
             return View(customer);
         }
 
-        
     }
 }
