@@ -11,7 +11,7 @@ namespace Vidly.Controllers
 {
     public class CustomerController : Controller
     {
-        // GET: Customer
+
         private ApplicationDbContext _context;
 
         public CustomerController()

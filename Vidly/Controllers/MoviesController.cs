@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
@@ -10,41 +11,57 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies/Random
-        public ActionResult Random()
+
+        private ApplicationDbContext _context;
+
+        public MoviesController()
         {
-            var movie = new Movie { Name = "Shrek" };
-            
-            var customers = new List<Customer>
-            {
-                new Customer {Name = "John Smith" },
-                new Customer {Name = "Mary Watson" }
-            };
+            _context = new ApplicationDbContext();
+        }
 
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = customers
-            };
-
-            return View(viewModel);
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
         }
 
         public ViewResult Index()
         {
-            var movies = GetMovies();
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
 
             return View(movies);
         }
 
-        private IEnumerable<Movie> GetMovies()
+        public ActionResult Details(int id)
         {
-            return new List<Movie>
-            {
-                new Movie {Name = "Die Hard", Id = 1 },
-                new Movie {Name = "The Transporter", Id = 2 }
-            };
+            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
 
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(movie);
         }
+
+        /*  public ActionResult Random()
+       {
+           var movie = new Movie { Name = "Shrek" };
+
+           var customers = new List<Customer>
+           {
+               new Customer {Name = "John Smith" },
+               new Customer {Name = "Mary Watson" }
+           };
+
+           var viewModel = new RandomMovieViewModel
+           {
+               Movie = movie,
+               Customers = customers
+           };
+
+           return View(viewModel);
+       }
+       */
+
     }
 }
