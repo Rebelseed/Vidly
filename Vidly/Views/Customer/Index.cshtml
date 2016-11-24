@@ -17,7 +17,7 @@ else
     <table id="customers" class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Customer</th>
+                <th>Name</th>
                 <th>Membership</th>
                 <th>Delete</th>
             </tr>
@@ -34,7 +34,6 @@ else
                 </td>
             </tr>
         }
-
 *@
         </tbody>
     </table>
@@ -43,7 +42,7 @@ else
 {
     <script>
         $(Document).ready(function () {
-            $("#customers").DataTable({
+            var table = $("#customers").DataTable({
                 ajax: {
                     url: "/api/customers",
                     dataSrc: ""
@@ -52,16 +51,16 @@ else
                     {
                         data: "name",
                         render: function (data, type, customer) {
-                            return "<a href='/customers/edit/" + customer.id + "'>" + customer.name + "</a>";
+                            return "<a href='/Customer/edit/" + customer.id + "'>" + customer.name + "</a>";
                         }
                     },
                     {
-                        data: "name"
+                        data: "membershipType.name"
                     },
                     {
                         data: "id",
                         render: function (data) {
-                            return "<button class='btn-link js-delete' data-customer-id" + data + ">Delete</button>";
+                            return "<button class='btn-link js-delete' data-customer-id=" + data + ">Delete</button>";
                         }
                     }
                 ]
@@ -69,14 +68,14 @@ else
 
             $("#customers").on("click", ".js-delete", function () {
                 var button = $(this);
-
+                
                 bootbox.confirm("Are you sure that you want to remove this customer?", function () {
-                    if (result) {
+                    if (confirm) {
                         $.ajax({
-                            url: "/api/customers/" + button.attr("data-customer-id"),
+                            url: "/api/Customers/" + button.attr("data-customer-id"),
                             method: "DELETE",
                             success: function () {
-                                button.parents("tr").remove();
+                                table.row(button.parents("tr")).remove().draw();
                             }
                         });
                     }
