@@ -8,8 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Vidly.Models;
+using Vidly.ViewModels;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -357,7 +358,7 @@ namespace Vidly.Controllers
                     // If the user does not have an account, then prompt the user to create an account
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmation { Email = loginInfo.Email });
             }
         }
 
@@ -366,7 +367,7 @@ namespace Vidly.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmation model, string returnUrl)
         {
             if (User.Identity.IsAuthenticated)
             {

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Vidly.Models;
+using Vidly.ViewModels;
 using Vidly.Dtos;
 using AutoMapper;
 using System.Data.Entity;
-
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers.Api
 {
