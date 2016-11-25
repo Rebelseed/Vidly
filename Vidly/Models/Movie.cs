@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using Vidly.ViewModels;
 
-namespace Vidly.Models
+namespace Vidly.ViewModels
 {
     public class Movie
     {
