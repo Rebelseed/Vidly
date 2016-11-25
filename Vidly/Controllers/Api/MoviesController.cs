@@ -10,6 +10,7 @@ using AutoMapper;
 using System.Data.Entity;
 using Vidly.Models;
 
+
 namespace Vidly.Controllers.Api
 {
     //[Authorize(Roles = RoleName.CanManageMovies)]

@@ -7,6 +7,7 @@ using System.Data.Entity;
 using Vidly.ViewModels;
 using Vidly.Models;
 
+
 namespace Vidly.Controllers
 {
     public class CustomerController : Controller

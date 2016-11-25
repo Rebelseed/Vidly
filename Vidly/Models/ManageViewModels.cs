@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace Vidly.ViewModels
+namespace Vidly.Models
 {
     public class IndexViewModel
     {
