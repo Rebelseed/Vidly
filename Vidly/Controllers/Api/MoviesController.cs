@@ -8,6 +8,7 @@ using Vidly.ViewModels;
 using Vidly.Dtos;
 using AutoMapper;
 using System.Data.Entity;
+using Vidly.Models;
 
 namespace Vidly.Controllers.Api
 {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using AutoMapper;
 using Vidly.ViewModels;
+using Vidly.Models;
 using Vidly.Dtos;
 
 namespace Vidly.App_Start

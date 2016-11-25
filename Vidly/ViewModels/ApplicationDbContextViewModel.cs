@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using Vidly.ViewModels;
+using Vidly.Models;
 
 namespace Vidly.ViewModels
 {
