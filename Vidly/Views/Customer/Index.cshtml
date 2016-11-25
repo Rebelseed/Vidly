@@ -69,8 +69,8 @@ else
             $("#customers").on("click", ".js-delete", function () {
                 var button = $(this);
                 
-                bootbox.confirm("Are you sure that you want to remove this customer?", function () {
-                    if (confirm) {
+                bootbox.confirm("Are you sure that you want to remove this customer?", function (result) {
+                    if (result) {
                         $.ajax({
                             url: "/api/Customers/" + button.attr("data-customer-id"),
                             method: "DELETE",

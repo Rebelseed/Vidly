@@ -19,17 +19,19 @@
         </thead>
         <tbody>
 @*
-        @foreach (var movie in Model)
-             {
-                 <tr>
-                     <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
-                     <td>@movie.Genre.Name</td>
-                     <td>
-                         <button data-movie-id="@movie.Id" class="btn-link js-delete">Delete</button>
-                     </td>
-                 </tr>
-             }
-*@
+        //ORIGINAL CODE NOT USING THE API
+
+            @foreach (var movie in Model)
+                 {
+                     <tr>
+                         <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
+                         <td>@movie.Genre.Name</td>
+                         <td>
+                             <button data-movie-id="@movie.Id" class="btn-link js-delete">Delete</button>
+                         </td>
+                     </tr>
+                 }
+            *@
         </tbody>
     </table>
 
@@ -64,8 +66,8 @@
             $("#movies").on("click", ".js-delete", function () {
                 var button = $(this);
 
-                bootbox.confirm("Are you sure that you want to remove this movie?", function () {
-                    if (confirm) {
+                bootbox.confirm("Are you sure that you want to remove this movie?", function (result) {
+                    if (result) {
                         $.ajax({
                             url: "/api/Movies/" + button.attr("data-movie-id"),
                             method: "DELETE",

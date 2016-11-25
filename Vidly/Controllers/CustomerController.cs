@@ -93,9 +93,8 @@ namespace Vidly.Controllers
 
         public ViewResult Index()
         {
-
+            //This uses the api/customers instead
             // var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-
             //return View(customers);
 
             return View();

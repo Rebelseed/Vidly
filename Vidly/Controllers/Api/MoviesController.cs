@@ -12,6 +12,7 @@ using System.Data.Entity;
 
 namespace Vidly.Controllers.Api
 {
+    //[Authorize(Roles = RoleName.CanManageMovies)]
     public class MoviesController : ApiController
     {
 
@@ -30,7 +31,8 @@ namespace Vidly.Controllers.Api
             return Ok(movieDtos);
         }
 
-        // GET /api/movies/id   
+        // GET /api/movies/id
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult GetMovie(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -42,6 +44,7 @@ namespace Vidly.Controllers.Api
         }
 
         // POST /api/movies
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpPost]
         public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
@@ -58,6 +61,7 @@ namespace Vidly.Controllers.Api
         }
 
         // PUT /api/movies/id
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpPut]
         public IHttpActionResult UpdateMovie(int id, MovieDto movieDto)
         {
@@ -76,6 +80,7 @@ namespace Vidly.Controllers.Api
         }
 
         // DELETE /api/movies/id
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpDelete]
         public IHttpActionResult DeleteMovie(int id)
         {
