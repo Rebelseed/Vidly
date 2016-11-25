@@ -8,8 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Vidly.Models;
+using Vidly.ViewModels;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Vidly.Models;
 
 namespace Vidly.Controllers
 {
@@ -151,7 +152,7 @@ namespace Vidly.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser
+                var user = new ApplicationUserViewModel
                 {
                     UserName = model.Email,
                     Email = model.Email,
@@ -366,7 +367,7 @@ namespace Vidly.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+        public async Task<ActionResult> ExternalLoginConfirmationViewModel(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -381,12 +382,12 @@ namespace Vidly.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser
+                var user = new ApplicationUserViewModel
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    DriverLicence = model.DriverLicence
-                    //PhoneNumber = model.PhoneNumber
+                    DriverLicence = model.DriverLicence,
+                    Phone = model.Phone
                 };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)

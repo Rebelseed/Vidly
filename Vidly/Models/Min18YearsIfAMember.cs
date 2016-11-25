@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
-namespace Vidly.Models
+namespace Vidly.ViewModels
 {
     public class Min18YearsIfAMember : ValidationAttribute
     {

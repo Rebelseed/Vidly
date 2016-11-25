@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
-using Vidly.Models;
 using Vidly.ViewModels;
 
 namespace Vidly.Controllers
@@ -12,11 +11,11 @@ namespace Vidly.Controllers
     public class CustomerController : Controller
     {
 
-        private ApplicationDbContext _context;
+        private ApplicationDbContextViewModel _context;
 
         public CustomerController()
         {
-            _context = new ApplicationDbContext();
+            _context = new ApplicationDbContextViewModel();
         }
 
         protected override void Dispose(bool disposing)

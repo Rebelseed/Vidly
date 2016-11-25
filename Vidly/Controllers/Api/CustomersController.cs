@@ -4,21 +4,20 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Vidly.Models;
+using Vidly.ViewModels;
 using Vidly.Dtos;
 using AutoMapper;
 using System.Data.Entity;
-
 
 namespace Vidly.Controllers.Api
 {
     public class CustomersController : ApiController
     {
-        private ApplicationDbContext _context;
+        private ApplicationDbContextViewModel _context;
 
         public CustomersController()
         {
-            _context = new ApplicationDbContext();
+            _context = new ApplicationDbContextViewModel();
         }
 
         // GET /api/customers
