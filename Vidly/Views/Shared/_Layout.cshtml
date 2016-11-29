@@ -18,17 +18,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Vidly", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Customers", "Index", "Customer")</li>
-                    <li>@Html.ActionLink("Movies", "Index", "Movies")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+            @Html.ActionLink("Vidly", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </div>
-    </div>
+        @Html.Partial("_NavBar")
     <div class="container body-content">
         @RenderBody()
         <hr />
